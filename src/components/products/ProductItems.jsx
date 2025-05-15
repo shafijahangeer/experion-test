@@ -18,7 +18,7 @@ function ProductItems({ category }) {
             ratingCount: 115,
             bestSeller: true,
         },
-         {
+        {
             category: "sport-shoes",
             icon: "logo",
             image: "../assets/images/products/product-2.jpg",
@@ -63,10 +63,9 @@ function ProductItems({ category }) {
 
 
     ];
-    console.log("Category prop:", category);
-    console.log("Products categories:", products.map(p => p.category));
-const filteredProducts = products.filter(p => p.category === category);
-  console.log("Filtered products:", filteredProducts);
+
+    const filteredProducts = products.filter(p => p.category === category);
+
     if (filteredProducts.length === 0) {
         return <p>No products found for this category.</p>;
     }
