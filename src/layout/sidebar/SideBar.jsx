@@ -1,5 +1,5 @@
 // src/components/Sidebar.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import Icon from '../../components/Icon';
 import Img from '../../components/img/Img';
 import { NavLink } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // const [activeIndex, setActiveIndex] = useState(0);
 
   const menuItems = [
 
@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
 
    return (
-   <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+   <nav className={`sidebar ${isOpen ? 'open' : ''}`}>
       <NavLink to="/" className="logo">
         <Img src="/assets/images/logo.svg" alt="Logo" />
       </NavLink>
@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <span className="sidebar__label">{item.label}</span>
         </NavLink>
       ))}
-    </div>
+    </nav>
   );
 };
 
