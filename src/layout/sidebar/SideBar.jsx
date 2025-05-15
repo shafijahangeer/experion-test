@@ -1,10 +1,14 @@
 // src/components/Sidebar.jsx
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 import Icon from '../../components/Icon';
 import Img from '../../components/img/Img';
+import { NavLink } from 'react-router-dom';
 
-const Sidebar = () => {
+
+
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const menuItems = [
 
     { icon: <Icon name="membership" />, label: 'Membership', path: '/membership' },
@@ -13,13 +17,13 @@ const Sidebar = () => {
     { icon: <Icon name="help" />, label: 'Help', path: '/help' },
   ];
 
-  return (
-    <div className="sidebar open">
+
+   return (
+   <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       <NavLink to="/" className="logo">
         <Img src="/assets/images/logo.svg" alt="Logo" />
       </NavLink>
-
-      {menuItems.map((item, index) => (
+     {menuItems.map((item, index) => (
         <NavLink
           to={item.path}
           key={index}

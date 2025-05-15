@@ -52,11 +52,11 @@ header {
         height: auto;
         padding: 0.5rem;
         cursor: pointer;
-        position: fixed;
+        position: relative;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
-        top: 0;
-        left: 3.75rem;
+        top: -2rem;
+        left: 2.5rem;
 
     }
 
