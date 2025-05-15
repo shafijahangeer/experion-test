@@ -1,36 +1,35 @@
 // src/components/Sidebar.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Icon from '../../components/Icon';
 import Img from '../../components/img/Img';
 
-
-
-const Sidebar = ({ isOpen, toggleSidebar }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+const Sidebar = () => {
   const menuItems = [
-    { icon: <Icon name="membership" />, label: 'Membership' },
-    { icon: <Icon name="dashboard" />, label: 'Dashboard' },
-     { icon: <Icon name="orders" />, label: 'Orders' },
-    { icon: <Icon name="help" />, label: 'Help' },
+
+    { icon: <Icon name="membership" />, label: 'Membership', path: '/membership' },
+    { icon: <Icon name="dashboard" />, label: 'Dashboard', path: '/dashboard' },
+    { icon: <Icon name="orders" />, label: 'Orders', path: '/orders' },
+    { icon: <Icon name="help" />, label: 'Help', path: '/help' },
   ];
 
+  return (
+    <div className="sidebar open">
+      <NavLink to="/" className="logo">
+        <Img src="/assets/images/logo.svg" alt="Logo" />
+      </NavLink>
 
-   return (
-   <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <a href='/' className='logo'>
-        <Img className='' src={'../assets/images/logo.svg'} alt={'illustration of logo'} />
-        {/* <Icon name={'logo'} /> */}
-      </a>
       {menuItems.map((item, index) => (
-        <div
-          className={`sidebar__item ${activeIndex === index ? 'active' : ''}`}
+        <NavLink
+          to={item.path}
           key={index}
-          onClick={() => setActiveIndex(index)}
+          className={({ isActive }) =>
+            `sidebar__item ${isActive ? 'active' : ''}`
+          }
         >
           <div className="sidebar__icon">{item.icon}</div>
           <span className="sidebar__label">{item.label}</span>
-        </div>
+        </NavLink>
       ))}
     </div>
   );

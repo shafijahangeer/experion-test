@@ -1,16 +1,14 @@
 import React from "react";
 import Header from "./header/Header";
 import SideBar from "./sidebar/SideBar";
-import ContentArea from "./content/ContentArea";
-import MembershipCard from "../components/membership-card/MembershipCard";
+import { Outlet } from "react-router-dom";
 function Layout() {
   return (
     <div className="layout">
       <SideBar />
       <Header />
       <div className="content-container">
-        <ContentArea />
-        <MembershipCard />
+       <Outlet />
       </div>
     </div>
   );

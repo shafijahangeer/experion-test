@@ -1,7 +1,7 @@
 @use '../mixins';
 
 .sidebar {
-  width:3.75rem;
+  width: 3.75rem;
   height: 100vh;
   background-color: #0F255F;
   display: flex;
@@ -63,6 +63,7 @@
     color: $white;
     cursor: pointer;
     transition: background 0.2s;
+    text-decoration: none;
 
     &:hover {
       background-color: #536DFE;
