@@ -1,0 +1,125 @@
+@use '../variables';
+@use '../mixins';
+
+.member-steps {
+    .title {
+        font-size: 1.25rem;
+        font-weight: $fw-400;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+        display: none;
+
+        @media screen and (min-width: $md) {
+            display: block;
+        }
+    }
+
+    &__container {
+        padding: 1.5rem 2rem;
+        border-radius: 0.375rem;
+        background-color: $white;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+        -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+        -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+        @include flex-start;
+        flex-direction: column;
+        gap: 3rem;
+
+        @media screen and (min-width: $md) {
+            padding: 2.125rem;
+            flex-direction: row;
+            @include flex-between;
+            gap: 2rem
+        }
+
+        &__wrapper {
+            @include flex-center;
+            gap: 1rem;
+
+            @media screen and (min-width: $md) {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            &__item {
+                background-color: #E8E8FF;
+                padding: 1rem;
+                border-radius: 0.375rem;
+                color: #0F255F;
+                position: relative;
+                transition: transform .5s ease;
+
+                &:hover {
+                    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+                    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+                    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+
+                }
+                &:hover .icon{
+                    color: $secondary-color;
+
+
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(0%, 115%);
+                    background: url('../../public/assets/images/arrow-down.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 0.438rem;
+                    height: 2rem;
+
+
+                    @media screen and (min-width: $md) {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(50%, -50%);
+                        background: url('../../public/assets/images/arrow.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 4.375rem;
+                        height: 0.438rem;
+                    }
+
+                    @media screen and (min-width: $xl) {
+                        width: 6.25rem;
+                        background-size: cover;
+                          transform: translate(66.66%, -50%);
+                    }
+
+                }
+
+                &.no-arrow::after {
+                    display: none;
+                }
+            }
+
+
+
+            &__info {
+                font-size: 0.875rem;
+                font-weight: $fw-400;
+                color: #0F255F;
+                text-align: start;
+
+                @media screen and (min-width: $md) {
+                    text-align: center;
+                }
+
+                @media screen and (min-width: $xxl) {
+                    max-width: 4rem;
+
+                }
+            }
+        }
+    }
+
+
+
+}

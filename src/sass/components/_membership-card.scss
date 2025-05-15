@@ -1,0 +1,95 @@
+@use '../variables';
+@use '../mixins';
+
+.membership-card {
+    padding: 1.5rem 1rem;
+    grid-column: span 12;
+
+    @media screen and (min-width: $xl) {
+        border-right: 1px solid #E5E5EC;
+        grid-column: span 4;
+
+    }
+
+    @media screen and (min-width: $xl) {
+        grid-column: span 3
+    }
+
+    .title {
+        font-size: 1rem;
+        font-weight: $fw-700;
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+    }
+
+    &__wrapper {
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        &__image {
+            background-color: #E8E8FF;
+            height: 10.625rem;
+            width: 100%;
+            @include flex-center;
+            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+            -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+            -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.04);
+
+            img {
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                margin: 0 auto;
+            }
+
+        }
+
+        &__box {
+            padding: 1.5rem;
+            background-color: $white;
+
+            .icon {
+                min-width: 0.875rem;
+                min-height: 0.875rem;
+
+            }
+
+            .btn {
+                margin-top: 3rem;
+            }
+
+            &__title {
+                font-size: 1.25rem;
+                font-weight: $fw-600;
+                color: $primary-color;
+                margin-bottom: 1rem;
+            }
+
+            &__info-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            &__info-box {
+                @include flex-start;
+                gap: 0.25rem;
+            }
+
+            &__info-title {
+                font-size: 0.875rem;
+                font-weight: $fw-400;
+                color: $primary-color;
+                margin-bottom: 0.25rem;
+            }
+
+            &__info-description {
+                font-size: 0.875rem;
+                font-weight: $fw-400;
+                color: $primary-color;
+                opacity: 0.7;
+            }
+        }
+
+    }
+}

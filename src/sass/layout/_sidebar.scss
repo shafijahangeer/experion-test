@@ -1,0 +1,96 @@
+@use '../mixins';
+
+.sidebar {
+  width:3.75rem;
+  height: 100vh;
+  background-color: #0F255F;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+
+  @media screen and (min-width: $md) {
+    top: 0;
+    left: 0;
+
+    &.open {
+      left: 0;
+
+    }
+  }
+
+
+  @media screen and (max-width: 767px) {
+    left: -100%;
+    transition: left 0.3s ease, opacity 0.3s ease;
+
+    &.open {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &:hover {
+    width: 15.5rem;
+  }
+
+  .logo {
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0.625rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    color: $white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    width: fit-content;
+    margin-left: 0;
+
+    @media screen and (min-width: $md) {
+
+      margin-bottom: 5rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    color: $white;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background-color: #536DFE;
+    }
+
+    &.active {
+      background-color: #536dfe; // Active highlight color
+      color: $white;
+
+      svg {
+        fill: $white;
+      }
+    }
+  }
+
+  &__icon {
+    width: auto;
+  }
+
+  &__label {
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: $fw-500;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover &__label {
+    opacity: 1;
+  }
+}
