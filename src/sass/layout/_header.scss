@@ -88,8 +88,8 @@ header {
         @media screen and (min-width: $md) {
             flex-wrap: nowrap;
             flex-direction: row;
-            // width: fit-content;
             gap: 2.25rem;
+
         }
 
         @media screen and (min-width: $xxl) {
